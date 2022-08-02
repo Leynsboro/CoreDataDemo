@@ -69,9 +69,10 @@ class TaskViewController: UIViewController {
     
     @objc func save() {
         guard let task = newTaskTextField.text else { return }
-        StorageManager.shared.save(with: task)
-        delegate?.reloadData()
-        dismiss(animated: true)
+        StorageManager.shared.save(with: task) { _ in
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
     
     @objc func cancel() {
