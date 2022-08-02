@@ -25,11 +25,10 @@ class StorageManager {
     func fetchData(completion: @escaping([Task]) -> Void) {
         let context = persistentContainer.viewContext
         let fetchRequest = Task.fetchRequest()
-        fetchRequest.returnsObjectsAsFaults = false
+//        fetchRequest.returnsObjectsAsFaults = false
         
         do {
             let taskList = try context.fetch(fetchRequest)
-            print(taskList)
             completion(taskList)
         } catch let error {
             print(error)

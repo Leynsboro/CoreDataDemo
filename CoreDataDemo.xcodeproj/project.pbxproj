@@ -41,6 +41,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CC2341728999D50008B89C7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CDB67452898325B00AD1626 /* TaskListViewController.swift */,
+				4CDB67582898363B00AD1626 /* TaskViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4CC2341828999D65008B89C7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4CDB67412898325B00AD1626 /* AppDelegate.swift */,
+				4CDB67522898325C00AD1626 /* Info.plist */,
+				4CDB674A2898325B00AD1626 /* CoreDataDemo.xcdatamodeld */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4CC2341928999D7A008B89C7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4CC2341528997600008B89C7 /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4CC2341A28999DBF008B89C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CDB675C2898713C00AD1626 /* CustomButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4CDB67352898325B00AD1626 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +95,12 @@
 		4CDB67402898325B00AD1626 /* CoreDataDemo */ = {
 			isa = PBXGroup;
 			children = (
-				4CDB67412898325B00AD1626 /* AppDelegate.swift */,
-				4CDB67452898325B00AD1626 /* TaskListViewController.swift */,
+				4CC2341728999D50008B89C7 /* ViewControllers */,
+				4CC2341A28999DBF008B89C7 /* Views */,
+				4CC2341928999D7A008B89C7 /* Services */,
+				4CC2341828999D65008B89C7 /* App */,
 				4CDB674D2898325C00AD1626 /* Assets.xcassets */,
 				4CDB674F2898325C00AD1626 /* LaunchScreen.storyboard */,
-				4CDB67522898325C00AD1626 /* Info.plist */,
-				4CDB674A2898325B00AD1626 /* CoreDataDemo.xcdatamodeld */,
-				4CDB67582898363B00AD1626 /* TaskViewController.swift */,
-				4CDB675C2898713C00AD1626 /* CustomButton.swift */,
-				4CC2341528997600008B89C7 /* StorageManager.swift */,
 			);
 			path = CoreDataDemo;
 			sourceTree = "<group>";
@@ -291,7 +323,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87898T57Q4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CoreDataDemo/Info.plist;
+				INFOPLIST_FILE = CoreDataDemo/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -318,7 +350,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87898T57Q4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CoreDataDemo/Info.plist;
+				INFOPLIST_FILE = CoreDataDemo/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

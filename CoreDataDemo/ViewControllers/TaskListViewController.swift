@@ -23,8 +23,6 @@ class TaskListViewController: UITableViewController {
         fetchData()
     }
     
-    
-    
     private func setupNavBar() {
         title = "Task bar"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -65,11 +63,10 @@ class TaskListViewController: UITableViewController {
         }
         
     }
-
 }
 
 extension TaskListViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         taskList.count
     }
     
