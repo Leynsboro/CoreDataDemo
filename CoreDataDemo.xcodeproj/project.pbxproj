@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C02B680289BF09700920BA9 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C02B67F289BF09700920BA9 /* AlertController.swift */; };
 		4CC2341628997600008B89C7 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2341528997600008B89C7 /* StorageManager.swift */; };
 		4CDB67422898325B00AD1626 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB67412898325B00AD1626 /* AppDelegate.swift */; };
 		4CDB67462898325B00AD1626 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB67452898325B00AD1626 /* TaskListViewController.swift */; };
 		4CDB674C2898325B00AD1626 /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB674A2898325B00AD1626 /* CoreDataDemo.xcdatamodeld */; };
 		4CDB674E2898325C00AD1626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB674D2898325C00AD1626 /* Assets.xcassets */; };
 		4CDB67512898325C00AD1626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB674F2898325C00AD1626 /* LaunchScreen.storyboard */; };
-		4CDB67592898363B00AD1626 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB67582898363B00AD1626 /* TaskViewController.swift */; };
 		4CDB675D2898713C00AD1626 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB675C2898713C00AD1626 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C02B67F289BF09700920BA9 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		4CC2341528997600008B89C7 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		4CDB673E2898325B00AD1626 /* CoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDB67412898325B00AD1626 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		4CDB674D2898325C00AD1626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CDB67502898325C00AD1626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CDB67522898325C00AD1626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CDB67582898363B00AD1626 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		4CDB675C2898713C00AD1626 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				4CDB67452898325B00AD1626 /* TaskListViewController.swift */,
-				4CDB67582898363B00AD1626 /* TaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,6 +100,7 @@
 				4CC2341828999D65008B89C7 /* App */,
 				4CDB674D2898325C00AD1626 /* Assets.xcassets */,
 				4CDB674F2898325C00AD1626 /* LaunchScreen.storyboard */,
+				4C02B67F289BF09700920BA9 /* AlertController.swift */,
 			);
 			path = CoreDataDemo;
 			sourceTree = "<group>";
@@ -176,9 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CDB67462898325B00AD1626 /* TaskListViewController.swift in Sources */,
-				4CDB67592898363B00AD1626 /* TaskViewController.swift in Sources */,
 				4CDB674C2898325B00AD1626 /* CoreDataDemo.xcdatamodeld in Sources */,
 				4CC2341628997600008B89C7 /* StorageManager.swift in Sources */,
+				4C02B680289BF09700920BA9 /* AlertController.swift in Sources */,
 				4CDB67422898325B00AD1626 /* AppDelegate.swift in Sources */,
 				4CDB675D2898713C00AD1626 /* CustomButton.swift in Sources */,
 			);

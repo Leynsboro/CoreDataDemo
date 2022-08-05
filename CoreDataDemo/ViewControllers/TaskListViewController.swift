@@ -7,16 +7,11 @@
 
 import UIKit
 
-protocol TaskViewControllerDelegate {
-    func reloadData()
-}
-
 class TaskListViewController: UITableViewController {
     
     private let cellID = "task"
     private var taskList: [Task] = []
-    private var tempCellId = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
@@ -52,7 +47,7 @@ class TaskListViewController: UITableViewController {
     }
     
     @objc private func addNewTask() {
-        showAlert(with: "New task", and: "What do you want to do?", for: "New task")
+        createAlert()
     }
 
     private func fetchData() {
@@ -61,41 +56,15 @@ class TaskListViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-        
-    private func showAlert(with title: String, and message: String, for placeholder: String, editTask: Bool = false) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
-            guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
-            if editTask {
-                self.edit(task)
-            } else {
-                self.save(task)
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { textField in
-            textField.placeholder = placeholder
-        }
-        
-        present(alert, animated: true)
-    }
     
     private func save(_ taskName: String) {
         StorageManager.shared.save(with: taskName) { task in
             self.taskList.append(task)
+            self.tableView.insertRows(
+                at: [IndexPath(row: self.taskList.count - 1, section: 0)],
+                with: .automatic
+            )
         }
-        
-        let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
-        tableView.insertRows(at: [cellIndex], with: .automatic)
-    }
-    
-    private func edit(_ taskName: String) {
-        taskList[tempCellId].title = taskName
-        let cellIndex = IndexPath(row: tempCellId, section: 0)
-        tableView.reloadRows(at: [cellIndex], with: .automatic)
-        StorageManager.shared.saveContext()
     }
 }
 
@@ -115,8 +84,9 @@ extension TaskListViewController {
     }
         
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let task = taskList[indexPath.row]
+        
         if editingStyle == .delete {
-            let task = taskList[indexPath.row]
             taskList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             StorageManager.shared.delete(with: task)
@@ -124,16 +94,29 @@ extension TaskListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let task = taskList[indexPath.row].title else { return }
-        tempCellId = indexPath.row
-        showAlert(with: "Edit task", and: "As you wish", for: task, editTask: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = taskList[indexPath.row]
+        createAlert(task: task) {
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 
-extension TaskListViewController: TaskViewControllerDelegate {
-    func reloadData() {
-        fetchData()
-        tableView.reloadData()
+extension TaskListViewController {
+    func createAlert(task: Task? = nil, completion: (() -> Void)? = nil) {
+        guard let title = task != nil ? "Update task" : "New task" else { return }
+        let alert = UIAlertController.createAlertController(withTitle: title)
+        
+        alert.action(task: task) { taskName in
+            if let task = task, let completion = completion {
+                StorageManager.shared.edit(task: task, newTask: taskName)
+                completion()
+            } else {
+                self.save(taskName)
+            }
+        }
+        
+        present(alert, animated: true)
     }
 }
 
